@@ -56,11 +56,8 @@ jobs:
           name: Release-Artifact
           path: "Cheat Engine/bin/release.zip"
           
-      - uses: actions/checkout@v2
-      
-      - uses: actions/download-artifact@v2
+      - uses: yakuhzi/action-release@v1
         with:
-          name: Release
-          path: "Cheat Engine/bin/release.zip"
-      - name: Display structure of downloaded files
-        run: ls -R
+          file: "Cheat Engine/bin/release.zip"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
