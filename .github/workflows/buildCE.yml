@@ -50,15 +50,17 @@ jobs:
         shell: cmd
         run: 7z a -tzip release.zip * -r
         working-directory: "./Cheat Engine/bin"
+    
+      - uses: actions/checkout@v2
+      
       - name: Release artifact
         uses: actions/upload-artifact@v2
         with:
           name: Release
           path: "Cheat Engine/bin/release.zip"
-      - name: Download a Build Artifact
-        uses: actions/download-artifact@v2.1.0
+      - uses: actions/download-artifact@v2
         with:
-          # Artifact name
           name: Release
-          # Destination path
-          path: "Cheat Engine/bin/release.zip"
+          
+      - name: Display structure of downloaded files
+        run: ls -R
