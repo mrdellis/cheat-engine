@@ -55,3 +55,10 @@ jobs:
         with:
           name: Release
           path: "Cheat Engine/bin/release.zip"
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v2.1.0
+        with:
+          # Artifact name
+          name: Release
+          # Destination path
+          path: "Cheat Engine/bin/release.zip"
